@@ -1,8 +1,8 @@
-FROM openjdk:17-jdk-slim as builder
+FROM adoptopenjdk:latest as builder
 COPY target/*.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
-FROM openjdk:17-jdk-slim
+FROM adoptopenjdk:latest
 WORKDIR /app
 COPY --from=builder dependencies/ ./
 COPY --from=builder snapshot-dependencies/ ./

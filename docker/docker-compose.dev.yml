@@ -26,13 +26,21 @@ services:
       dockerfile: Dockerfile
     container_name: backend_dev
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: dev
     ports:
       - "8081:8080"
     networks:
       - backend_network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/api/v1/healthcheck"]
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+        delay: 5s
   web_server:
     image: nginx
     container_name: web_server_dev
@@ -40,6 +48,16 @@ services:
       - "9000:80"
     networks:
       - backend_network
+    depends_on:
+      backend:
+        condition: service_healthy
+    volumes:
+      - ../nginx/conf.d:/etc/nginx/conf.d
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+        delay: 5s
 networks:
   backend_network:
 volumes:

@@ -10,7 +10,7 @@ services:
       - database_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: book_shop_app_dev
-      MYSQL_ROOT_PASSWORD: P@Word1234!!!#$#
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - "3310:3306"
     deploy:

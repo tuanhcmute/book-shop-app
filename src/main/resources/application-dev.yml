@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://database:3306/book_shop_app_dev
     username: root
-    password: P@Word1234!!!#$#
+    password: root
   jpa:
     hibernate:
       ddl-auto: update

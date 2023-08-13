@@ -1,0 +1,14 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api/v1
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://:pWs2AboQw4WCzh9V5PC1@containers-us-west-58.railway.app:5663/book-shop-app-prod?createDatabaseIfNotExist=true
+    username: root
+    password: pWs2AboQw4WCzh9V5PC1
+  jpa:
+    hibernate:
+      ddl-auto: update
+

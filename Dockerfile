@@ -1,6 +1,5 @@
 FROM openjdk:17-jdk-slim as builder
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} application.jar
+COPY target/*.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM openjdk:17-jdk-slim

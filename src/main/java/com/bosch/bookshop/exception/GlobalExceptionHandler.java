@@ -12,7 +12,7 @@ import javax.naming.AuthenticationException;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler({ AuthenticationException.class })
+    @ExceptionHandler({AuthenticationException.class})
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ExceptionResponse handleAuthenticationException(Exception ex) {
         log.info(ex.getMessage());

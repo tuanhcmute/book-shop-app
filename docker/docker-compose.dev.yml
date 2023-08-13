@@ -19,7 +19,7 @@ services:
         max_attempts: 5
         delay: 5s
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
   backend:
     build:
       context: ../
@@ -35,7 +35,7 @@ services:
     networks:
       - backend_network
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/api/v1/healthcheck"]
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/api/v1/healthcheck" ]
     deploy:
       restart_policy:
         condition: on-failure

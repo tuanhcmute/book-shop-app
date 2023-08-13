@@ -1,10 +1,6 @@
 package com.bosch.bookshop.exception;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Getter
 @Setter

@@ -2,7 +2,6 @@ package com.bosch.bookshop.book;
 
 import lombok.*;
 
-import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 @Getter
